@@ -1,6 +1,13 @@
 import { Home } from "./Home";
+import { SocketContext } from "@/Context/SocketContext";
+import { socket } from "@/Context/SocketContext";
+import "../CSS/App.css";
 function App() {
-  return <Home />;
+  return (
+    <SocketContext.Provider value={socket}>
+      <Home />
+    </SocketContext.Provider>
+  );
 }
 
 export default App;

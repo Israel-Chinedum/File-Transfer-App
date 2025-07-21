@@ -1,0 +1,16 @@
+* {
+  --bgColor: #242424;
+  --themeColor: rgb(61, 49, 224);
+  --transColor: rgba(61, 49, 224, 0.61);
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--transColor);
+  border-radius: 1rem;
+  cursor: grab;
+}

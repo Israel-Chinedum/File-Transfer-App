@@ -3,7 +3,7 @@ import { FiShare2 } from "react-icons/fi";
 
 export const SideNav = () => {
   const myStyle = {
-    bg: "rgba(47, 36, 197, 1)",
+    bg: "var(--bgColor)",
     cursor: "pointer",
   };
 
