@@ -3,7 +3,7 @@ import { FiShare2 } from "react-icons/fi";
 
 export const SideNav = () => {
   const myStyle = {
-    bg: "var(--bgColor)",
+    bg: "var(--hoverColor)",
     cursor: "pointer",
   };
 
@@ -15,7 +15,8 @@ export const SideNav = () => {
         _hover={myStyle}
         py={2}
         px={20}
-        fontSize={20}
+        fontSize={15}
+        color={"white"}
       >
         <Icon as={FiShare2}></Icon>
         <Box w={"10px"}></Box>

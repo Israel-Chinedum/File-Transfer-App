@@ -35,11 +35,14 @@ import { Transfer } from "./Transfer";
 import { Receive } from "./Receive";
 import { mainContent } from "./main_content";
 import { useRef, useState } from "react";
+import { MdBorderColor } from "react-icons/md";
 
 export const MainContent = () => {
   const tabStyle = {
     bg: "var(--transColor)",
     transition: "0.5s",
+    color: "white",
+    borderColor: "white",
   };
 
   const fileInput = useRef<HTMLInputElement>(null);
@@ -120,16 +123,16 @@ export const MainContent = () => {
   const { read } = mainContent({ setFiles });
 
   return (
-    <Container py={10} h={"100vh"}>
+    <Container py={10} h={"100vh"} color={"white"}>
       <input type="file" multiple style={{ display: "none" }} ref={fileInput} />
 
-      <Tabs.Root h={"100%"} defaultValue={"transfer"}>
+      <Tabs.Root h={"100%"} defaultValue={"transfer"} variant={"outline"}>
         <Tabs.List borderBottom={"1px solid grey"}>
           <HStack>
-            <Tabs.Trigger value="transfer" _selected={tabStyle}>
+            <Tabs.Trigger value="transfer" _selected={tabStyle} border={"none"}>
               Transfer
             </Tabs.Trigger>
-            <Tabs.Trigger value="receive" _selected={tabStyle}>
+            <Tabs.Trigger value="receive" _selected={tabStyle} border={"none"}>
               Receive
             </Tabs.Trigger>
           </HStack>

@@ -42,13 +42,14 @@ export const Transfer = ({
       )}
 
       {files.length !== 0 && (
-        <Box display={"flex"} flexDir={"column"}>
+        <Box display={"flex"} flexDir={"column"} alignItems={"center"}>
           <Box
             position={"sticky"}
             top={"0"}
             display={"flex"}
             justifyContent={"end"}
             p={"10px"}
+            width={"100%"}
           >
             <HStack bg={"var(--transColor)"} p={"10px"} borderRadius={"5px"}>
               <Text>
@@ -72,9 +73,12 @@ export const Transfer = ({
           </Box>
           {files.map((file: any, index: number) => (
             <Box
-              py={5}
-              borderBottom={"1px solid grey"}
+              p={5}
+              boxShadow={"0px 0px 10px 2px var(--borderColor)"}
               key={`${index}${file.name}`}
+              width={"95%"}
+              mb={"20px"}
+              borderRadius={"5px"}
             >
               {MIMETypesAndIcons.current.map((obj: any, index: number) => {
                 if (
@@ -101,7 +105,7 @@ export const Transfer = ({
                         fontSize={"4rem"}
                         color={"white"}
                         bg={"var(--themeColor)"}
-                        borderRadius={"1rem"}
+                        borderRadius={"7px"}
                         m={5}
                       ></Icon>
                       <audio
@@ -120,9 +124,9 @@ export const Transfer = ({
                         fontSize={"4rem"}
                         color={"white"}
                         bg={"var(--themeColor)"}
-                        borderRadius={"1rem"}
+                        borderRadius={"7px"}
                       ></Icon>
-                      <Text>{file.fileName}</Text>
+                      <Text>{file.name}</Text>
                     </Box>
                   );
                 }
@@ -139,7 +143,7 @@ export const Transfer = ({
                         fontSize={"4rem"}
                         color={"white"}
                         bg={"grey"}
-                        borderRadius={"1rem"}
+                        borderRadius={"7px"}
                       ></Icon>
                       <Text>{file.name}</Text>
                     </Box>
