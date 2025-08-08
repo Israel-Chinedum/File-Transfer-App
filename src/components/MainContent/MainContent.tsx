@@ -30,12 +30,10 @@ import {
   FaTerminal,
 } from "react-icons/fa";
 import { SiTypescript, SiC, SiCplusplus } from "react-icons/si";
-import type { fileMetaData } from "../Types&Interfaces";
 import { Transfer } from "./Transfer";
-import { Receive } from "./Receive";
+import { Files } from "./Files";
 import { mainContent } from "./main_content";
 import { useRef, useState } from "react";
-import { MdBorderColor } from "react-icons/md";
 
 export const MainContent = () => {
   const tabStyle = {
@@ -132,6 +130,9 @@ export const MainContent = () => {
             <Tabs.Trigger value="transfer" _selected={tabStyle} border={"none"}>
               Transfer
             </Tabs.Trigger>
+            <Tabs.Trigger value="files" _selected={tabStyle} border={"none"}>
+              Files
+            </Tabs.Trigger>
             <Tabs.Trigger value="receive" _selected={tabStyle} border={"none"}>
               Receive
             </Tabs.Trigger>
@@ -154,8 +155,11 @@ export const MainContent = () => {
             MIMETypesAndIcons={MIMETypesAndIcons}
           />
         </Tabs.Content>
+        <Tabs.Content value="files">
+          <Files files={files} />
+        </Tabs.Content>
         <Tabs.Content value="receive">
-          <Receive />
+          <Button>Receive</Button>
         </Tabs.Content>
       </Tabs.Root>
     </Container>

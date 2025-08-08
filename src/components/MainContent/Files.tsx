@@ -1,17 +1,18 @@
 import { Container, Tabs } from "@chakra-ui/react";
+import { Audio } from "./Media/Audio";
 
-export const Receive = () => {
+export const Files = ({ files }: { files: File[] }) => {
   const active = {
     color: "var(--themeColor)",
     bg: "white",
   };
 
   return (
-    <Container>
+    <Container px={0}>
       <Tabs.Root variant={"outline"}>
-        <Tabs.List>
-          <Tabs.Trigger _selected={active} value="music">
-            Music
+        <Tabs.List borderBottom={'1px solid grey'}>
+          <Tabs.Trigger _selected={active} value="audio">
+            Audio
           </Tabs.Trigger>
           <Tabs.Trigger _selected={active} value="video">
             Video
@@ -26,6 +27,9 @@ export const Receive = () => {
             Zip
           </Tabs.Trigger>
         </Tabs.List>
+        <Tabs.Content value="audio">
+          <Audio files={files} />
+        </Tabs.Content>
       </Tabs.Root>
     </Container>
   );

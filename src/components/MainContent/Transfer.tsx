@@ -1,8 +1,13 @@
 import { HStack, Icon, Box, Button, Text } from "@chakra-ui/react";
 import { FaFile, FaFileAudio } from "react-icons/fa";
 import { LuSend } from "react-icons/lu";
-import { VideoTypes, AudioTypes } from "./FileTypes";
+import { VideoTypes } from "./FileTypes";
 import { transferFiles } from "./transfer_files";
+import { Socket } from 'socket.io-client';
+import { SocketContext } from '../../Context/SocketContext';
+import { useContext } from 'react';
+
+
 
 type props = {
   files: File[];
@@ -17,6 +22,7 @@ export const Transfer = ({
   read,
   MIMETypesAndIcons,
 }: props) => {
+  const socket: Socket = useContext(SocketContext);
   return (
     <>
       {!files.length && (
@@ -171,7 +177,7 @@ export const Transfer = ({
             transition={"0.5s"}
             id="send-btn"
             onClick={() => {
-              transferFiles(files);
+              transferFiles(files, socket);
             }}
           >
             <Icon as={LuSend} fontSize={30}></Icon>

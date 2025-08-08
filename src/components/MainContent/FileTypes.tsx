@@ -21,4 +21,4 @@ export const VideoTypes = ({ file }: { file: File }) => {
   );
 };
 
-export const AudioTypes = (file: any) => {};
+// export const AudioTypes = (file: any) => {};

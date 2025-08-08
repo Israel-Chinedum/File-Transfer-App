@@ -8,7 +8,7 @@ export const Home = () => {
       <GridItem
         bg={"var(--themeColor)"}
         colSpan={1}
-        borderRight={"1px solid white"}
+        borderRight={"5px solid grey"}
       >
         <SideNav />
       </GridItem>
