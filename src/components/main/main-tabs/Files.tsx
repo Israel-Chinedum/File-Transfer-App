@@ -1,5 +1,5 @@
 import { Container, Tabs } from "@chakra-ui/react";
-import { Audio } from "./Media/Audio";
+import { Audio } from "../Media/Audio";
 
 export const Files = ({ files }: { files: File[] }) => {
   const active = {

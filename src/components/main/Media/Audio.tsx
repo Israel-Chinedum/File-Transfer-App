@@ -1,5 +1,5 @@
 import { Container, Box, Icon, Text } from '@chakra-ui/react';
-import { FaFileAudio } from 'react-icons/fa';
+import { icons } from '@/utilities/icons';
 
 export const Audio = ({ files }: { files: File[] }) => {
     return (
@@ -8,7 +8,7 @@ export const Audio = ({ files }: { files: File[] }) => {
                 return (
                     <Box key={`${index}${file.name}`}>
                         <Icon
-                        as={FaFileAudio}
+                        as={icons.FaFileAudio}
                         fontSize={"4rem"}
                         color={"white"}
                         bg={"var(--themeColor)"}

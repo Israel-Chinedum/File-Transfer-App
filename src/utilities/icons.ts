@@ -1,14 +1,5 @@
 import {
-  Button,
-  Container,
-  HStack,
-  Tabs,
-  Text,
-  Icon,
-  Box,
-  Stack,
-} from "@chakra-ui/react";
-import {
+  FaFile,
   FaFilePdf,
   FaFileImage,
   FaFileAudio,
@@ -30,22 +21,47 @@ import {
   FaTerminal,
 } from "react-icons/fa";
 import { SiTypescript, SiC, SiCplusplus } from "react-icons/si";
-import { Transfer } from "./Transfer";
-import { Files } from "./Files";
-import { mainContent } from "./main_content";
-import { useRef, useState } from "react";
+import { LuSend } from "react-icons/lu";
 
-export const MainContent = () => {
-  const tabStyle = {
-    bg: "var(--transColor)",
-    transition: "0.5s",
-    color: "white",
-    borderColor: "white",
-  };
 
-  const fileInput = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
-  const MIMETypesAndIcons = useRef([
+
+
+
+// EXPORT ICONS
+export const icons = {
+    FaFile,
+    FaFilePdf,
+    FaFileImage,
+    FaFileAudio,
+    FaFileVideo,
+    FaFileWord,
+    FaFileExcel,
+    FaFilePowerpoint,
+    FaFileArchive,
+    FaFileCode,
+    FaFileAlt,
+    FaFileCsv,
+    FaMarkdown,
+    FaHtml5,
+    FaCss3Alt,
+    FaJs,
+    FaPhp,
+    FaPython,
+    FaJava,
+    FaTerminal,
+    SiTypescript,
+    SiC,
+    SiCplusplus,
+    LuSend
+}
+
+
+
+
+
+
+// EXPORT MIME TYPES AND ICONS
+export const MIMETypesAndIcons = [
     // Images
     { type: "image/jpeg", icon: FaFileImage },
     { type: "image/png", icon: FaFileImage },
@@ -116,52 +132,4 @@ export const MainContent = () => {
     { type: "text/x-c", icon: SiC },
     { type: "text/x-c++", icon: SiCplusplus },
     { type: "application/x-sh", icon: FaTerminal },
-  ]);
-
-  const { read } = mainContent({ setFiles });
-
-  return (
-    <Container py={10} h={"100vh"} color={"white"}>
-      <input type="file" multiple style={{ display: "none" }} ref={fileInput} />
-
-      <Tabs.Root h={"100%"} defaultValue={"transfer"} variant={"outline"}>
-        <Tabs.List borderBottom={"1px solid grey"}>
-          <HStack>
-            <Tabs.Trigger value="transfer" _selected={tabStyle} border={"none"}>
-              Transfer
-            </Tabs.Trigger>
-            <Tabs.Trigger value="files" _selected={tabStyle} border={"none"}>
-              Files
-            </Tabs.Trigger>
-            <Tabs.Trigger value="receive" _selected={tabStyle} border={"none"}>
-              Receive
-            </Tabs.Trigger>
-          </HStack>
-        </Tabs.List>
-
-        {/* =====TABS CONTENT===== */}
-        <Tabs.Content
-          value="transfer"
-          maxHeight={"96%"}
-          display={"flex"}
-          flexDirection={"column"}
-          overflowY={"scroll"}
-          // alignItems={"center"}
-        >
-          <Transfer
-            files={files}
-            fileInput={fileInput}
-            read={read}
-            MIMETypesAndIcons={MIMETypesAndIcons}
-          />
-        </Tabs.Content>
-        <Tabs.Content value="files">
-          <Files files={files} />
-        </Tabs.Content>
-        <Tabs.Content value="receive">
-          <Button>Receive</Button>
-        </Tabs.Content>
-      </Tabs.Root>
-    </Container>
-  );
-};
+  ];

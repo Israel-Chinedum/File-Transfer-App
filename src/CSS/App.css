@@ -1,7 +1,8 @@
 * {
   --bgColor: #242424;
   --themeColor: rgb(61, 49, 224);
-  --transColor: rgba(61, 49, 224, 0.61);
+  --transColor: rgba(61, 49, 224, 0.719);
+  --transColor2: rgb(61, 49, 224);
   --hoverColor: rgba(0, 0, 0, 0.459);
   --borderColor: rgb(24, 23, 23);
 }

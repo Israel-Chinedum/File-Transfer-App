@@ -1,10 +1,9 @@
 import { HStack, Icon, Box, Button, Text } from "@chakra-ui/react";
-import { FaFile, FaFileAudio } from "react-icons/fa";
-import { LuSend } from "react-icons/lu";
-import { VideoTypes } from "./FileTypes";
-import { transferFiles } from "./transfer_files";
+import { icons } from "@/utilities/icons";
+import { VideoTypes } from "../FileTypes";
+import { transferFiles } from "@/utilities/transfer_files";
 import { Socket } from 'socket.io-client';
-import { SocketContext } from '../../Context/SocketContext';
+import { SocketContext } from '@/Context/SocketContext';
 import { useContext } from 'react';
 
 
@@ -28,7 +27,7 @@ export const Transfer = ({
       {!files.length && (
         <>
           <HStack fontSize={50} color={"grey"} justify={"center"}>
-            <Icon as={FaFile}></Icon>
+            <Icon as={icons.FaFile}></Icon>
             <Text>No file selected</Text>
           </HStack>
           <Button
@@ -107,7 +106,7 @@ export const Transfer = ({
                   return (
                     <Box key={`${index}${file.name}`}>
                       <Icon
-                        as={FaFileAudio}
+                        as={icons.FaFileAudio}
                         fontSize={"4rem"}
                         color={"white"}
                         bg={"var(--themeColor)"}
@@ -145,7 +144,7 @@ export const Transfer = ({
                   return (
                     <Box>
                       <Icon
-                        as={FaFile}
+                        as={icons.FaFile}
                         fontSize={"4rem"}
                         color={"white"}
                         bg={"grey"}
@@ -180,7 +179,7 @@ export const Transfer = ({
               transferFiles(files, socket);
             }}
           >
-            <Icon as={LuSend} fontSize={30}></Icon>
+            <Icon as={icons.LuSend} fontSize={30}></Icon>
           </Box>
         </Box>
       )}
