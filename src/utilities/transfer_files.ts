@@ -67,19 +67,4 @@ export const transferFiles = async (files: File[], socket: Socket) => {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };

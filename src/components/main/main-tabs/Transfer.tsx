@@ -1,27 +1,26 @@
 import { HStack, Icon, Box, Button, Text } from "@chakra-ui/react";
 import { icons } from "@/utilities/icons";
 import { VideoTypes } from "../FileTypes";
-import { transferFiles } from "@/utilities/transfer_files";
-import { Socket } from 'socket.io-client';
-import { SocketContext } from '@/Context/SocketContext';
-import { useContext } from 'react';
-
+import { Searcher } from "./Searcher";
+import { useState } from "react";
+import { MIMETypesAndIcons } from "@/utilities/icons";
 
 
 type props = {
   files: File[];
   fileInput: any;
   read: any;
-  MIMETypesAndIcons: any;
 };
 
 export const Transfer = ({
   files,
   fileInput,
   read,
-  MIMETypesAndIcons,
 }: props) => {
-  const socket: Socket = useContext(SocketContext);
+
+
+  const [ transferWindow, setTransferWindow ] = useState< 'open' | 'close' >('close')
+
   return (
     <>
       {!files.length && (
@@ -85,7 +84,7 @@ export const Transfer = ({
               mb={"20px"}
               borderRadius={"5px"}
             >
-              {MIMETypesAndIcons.current.map((obj: any, index: number) => {
+              {MIMETypesAndIcons.map((obj: any, index: number) => {
                 if (
                   file.type.split("/")[0] == "video" &&
                   file.type == obj.type
@@ -137,7 +136,7 @@ export const Transfer = ({
                 }
               })}
               {(() => {
-                const type = MIMETypesAndIcons.current.filter(
+                const type = MIMETypesAndIcons.filter(
                   (obj: any) => obj.type == file.type
                 );
                 if (type.length == 0) {
@@ -157,30 +156,16 @@ export const Transfer = ({
               })()}
             </Box>
           ))}
-          <Box
-            position={"sticky"}
-            bottom={"50px"}
-            right={"50px"}
-            alignSelf={"end"}
-            w={"max-content"}
-            bg={"var(--themeColor)"}
-            p={"10px"}
-            borderRadius={"50%"}
-            border={"2px solid white"}
-            cursor={"pointer"}
-            _hover={{
-              bg: "white",
-              borderColor: "var(--themeColor)",
-              color: "var(--themeColor)",
-            }}
-            transition={"0.5s"}
-            id="send-btn"
-            onClick={() => {
-              transferFiles(files, socket);
-            }}
-          >
-            <Icon as={icons.LuSend} fontSize={30}></Icon>
-          </Box>
+
+          {(transferWindow == 'open') && <Searcher files={files} />}
+          <Button
+          position={'sticky'}
+          bottom={'0'}
+          bg={'var(--themeColor)'}
+          onClick={() => {
+            const transferState = (transferWindow == 'open') ? 'close' : 'open';
+            setTransferWindow(transferState);
+          }}>{(transferWindow == 'open') ? 'Close' : 'transfer'}</Button>
         </Box>
       )}
     </>
