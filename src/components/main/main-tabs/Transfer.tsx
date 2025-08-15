@@ -46,7 +46,7 @@ export const Transfer = ({
       )}
 
       {files.length !== 0 && (
-        <Box display={"flex"} flexDir={"column"} alignItems={"center"}>
+        <Box display={"flex"} flexDir={"column"} alignItems={"center"} height={'98%'} overflowY={'scroll'}>
           <Box
             position={"sticky"}
             top={"0"}
@@ -160,7 +160,8 @@ export const Transfer = ({
           {(transferWindow == 'open') && <Searcher files={files} />}
           <Button
           position={'sticky'}
-          bottom={'0'}
+          top={'90%'}
+          bottom={'0%'}
           bg={'var(--themeColor)'}
           onClick={() => {
             const transferState = (transferWindow == 'open') ? 'close' : 'open';

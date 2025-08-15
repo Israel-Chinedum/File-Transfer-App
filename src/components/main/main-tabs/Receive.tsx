@@ -32,9 +32,9 @@ export const Receive = () => {
                 emitConn();
             }}>Receive</Button>}
             {connected == 'pending' && 
-                <Container px={0} display={'flex'} flexDir={'column'} height={'80vh'}  alignItems={'flex-start'}>
-                    <Button onClick={() => setConnection(false)}>Cancel</Button>
-                    <FadeCircle circumference={'180px'} text={'Connected...'} run={(connected == 'pending') ? true : false} />
+                <Container px={0} display={'flex'} flexDir={'column'} height={'80vh'}  alignItems={'center'} justifyContent={'center'}>
+                    <Button position={'absolute'} top={'0'} left={'0'} onClick={() => setConnection(false)}>Cancel</Button>
+                    <FadeCircle circumference={'180px'} text={'Connecting...'} run={(connected == 'pending') ? true : false} />
                 </Container>
             }
             {

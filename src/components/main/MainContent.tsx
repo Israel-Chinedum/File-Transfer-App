@@ -51,7 +51,7 @@ export const MainContent = () => {
         {/* =====TABS CONTENT===== */}
         <Tabs.Content
           value="transfer"
-          maxHeight={"96%"}
+          height={"100%"}
           display={"flex"}
           flexDirection={"column"}
           overflowY={"scroll"}
@@ -61,11 +61,10 @@ export const MainContent = () => {
             files={files}
             fileInput={fileInput}
             read={read}
-            MIMETypesAndIcons={MIMETypesAndIcons}
           />
         </Tabs.Content>
         <Tabs.Content value="files">
-          <Files files={files} />
+          <Files/>
         </Tabs.Content>
         <Tabs.Content value="receive">
           <Receive />
